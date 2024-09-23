@@ -2,7 +2,7 @@
 
 # https://web.archive.org/web/20230902185655/https://en.everybodywiki.com/100_Most_Highly-Ranked_Films
 
-# libraries for this lab.
+# libraries for this project.
 # pandas library for data storage and manipulation.
 # BeautifulSoup library for interpreting the HTML document.
 # requests library to communicate with the web page.
@@ -46,6 +46,7 @@ for row in rows:
             data_dict = {"Average Rank": col[0].contents[0],
                          "Film": col[1].contents[0],
                          "Year": col[2].contents[0]}
+            #A small temporary DataFrame (df1) is created for each movie, and then it is concatenated to the main DataFrame (df).
             df1 = pd.DataFrame(data_dict, index=[0])
             df = pd.concat([df,df1], ignore_index=True)
             count+=1
